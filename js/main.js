@@ -163,7 +163,7 @@ createRestaurantHTML = (restaurant) => {
   image.src = DBHelper.imageUrlForRestaurant(restaurant);
   li.append(image);
 
-  const name = document.createElement('h1');
+  const name = document.createElement('p');
   name.innerHTML = restaurant.name;
   li.append(name);
 
@@ -171,7 +171,7 @@ createRestaurantHTML = (restaurant) => {
   neighborhood.innerHTML = restaurant.neighborhood;
   li.append(neighborhood);
 
-  const address = document.createElement('p');
+  const address = document.createElement('h3');
   address.innerHTML = restaurant.address;
   li.append(address);
 
@@ -210,8 +210,8 @@ addMarkersToMap = (restaurants = self.restaurants) => {
 }
 
 //register service worker
-if (navigator.serviceWorker) {
-    navigator.serviceWorker.register('./sw.js').then(reg => {
+if ('serviceWorker' in navigator) { 
+  navigator.serviceWorker.register('./sw.js').then(reg => {
         console.log('sw registered');
         if (reg.installing) {
             console.log('sw installing');
@@ -222,5 +222,8 @@ if (navigator.serviceWorker) {
         if (reg.active) {
             console.log('active');
         }
+        console.log('Registration succeded. Scope is ' + reg.scope);
+      }).catch((error) => {
+        console.log('Registration failed with ' + error);
     });
-}
+  }
