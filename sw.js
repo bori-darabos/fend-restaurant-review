@@ -3,7 +3,6 @@ self.addEventListener('install', (event) => {
 		caches.open('v1').then((cache) => {
 			return cache.addAll([
 				'/',	
-
 				'img/1.jpg',
 				'img/2.jpg',
 				'img/3.jpg',
@@ -14,8 +13,7 @@ self.addEventListener('install', (event) => {
 				'img/8.jpg',
 				'img/9.jpg',
 				'img/10.jpg',
-				'/data/restaurants.json'
-				'index.html',
+				'/data/restaurants.json',
 				'restaurant.html',
 				'css/styles.css',
 				'js/main.js',
