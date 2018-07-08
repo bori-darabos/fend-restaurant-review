@@ -1,6 +1,26 @@
 let restaurant;
 var newMap;
 
+//register service worker
+if ('serviceWorker' in navigator) { 
+  navigator.serviceWorker.register('./sw.js').then(reg => {
+        console.log('sw registered');
+        if (reg.installing) {
+            console.log('sw installing');
+        }
+        if (reg.waiting) {
+            console.log('sw waiting');
+        }
+        if (reg.active) {
+            console.log('active');
+        }
+        console.log('Registration succeded. Scope is ' + reg.scope);
+      }).catch((error) => {
+        console.log('Registration failed with ' + error);
+    });
+  }
+
+
 /**
  * Initialize leaflet map
  */

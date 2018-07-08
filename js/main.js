@@ -1,3 +1,9 @@
+let restaurants,
+  neighborhoods,
+  cuisines;
+var newMap
+var markers = []
+
 //register service worker
 if ('serviceWorker' in navigator) { 
   navigator.serviceWorker.register('./sw.js').then(reg => {
@@ -17,13 +23,6 @@ if ('serviceWorker' in navigator) {
     });
   }
 
-  
-
-let restaurants,
-  neighborhoods,
-  cuisines;
-var newMap
-var markers = []
 
 /**
  * Fetch neighborhoods and cuisines as soon as the page is loaded.
